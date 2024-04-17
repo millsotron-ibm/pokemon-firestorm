@@ -201,7 +201,7 @@
     window.fbAuth = fbAuth;
     window.fbDB = fbDB;
   </script>
-  <script defer type="text/javascript">
+  <script type="text/javascript">
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
     stylesheet.type = 'text/css';
@@ -323,6 +323,10 @@
   event.preventDefault();
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+
+  console.log({firebase})
+  console.log({email})
+
   fbAuth.signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       console.log('User logged in successfully:', userCredential);
