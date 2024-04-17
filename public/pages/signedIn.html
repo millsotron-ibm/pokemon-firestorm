@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Firebase Example</title>
+  </head>
+  <body>
+    <div id="firebaseui-auth-container"></div>
+    <div id="user-info" style="display: none">
+      <h3>Welcome, <span id="user-name"></span>!</h3>
+      <p>Email: <span id="user-email"></span></p>
+    </div>
+
+    <!-- Firebase libraries and initialization code -->
+
+    <script>
+      // Add this function to handle authentication state changes
+      function onAuthStateChanged(user) {
+        const userInfo = document.getElementById("user-info");
+        if (user) {
+          // User is signed in, show their info
+          document.getElementById("user-name").textContent = user.displayName;
+          document.getElementById("user-email").textContent = user.email;
+          userInfo.style.display = "block";
+        } else {
+          // User is signed out, hide their info
+          userInfo.style.display = "none";
+        }
+      }
+
+      // Add an observer for authentication state changes
+      firebase.auth().onAuthStateChanged(onAuthStateChanged);
+    </script>
+  </body>
+</html>
