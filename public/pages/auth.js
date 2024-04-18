@@ -10,10 +10,12 @@ const uiConfig = {
     },
   },
   signInFlow: "popup",
-  signInSuccessUrl: "signedIn",
+  signInSuccessUrl: "signedIn.html",
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
   ],
 };
 ui.start("#firebaseui-auth-container", uiConfig);
+
+console.log({firebase});
