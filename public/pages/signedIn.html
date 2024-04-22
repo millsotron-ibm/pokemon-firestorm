@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Firebase Example</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
   </head>
   <body>
     <div id="firebaseui-auth-container"></div>
@@ -21,14 +27,29 @@
     <!-- Firebase libraries and initialization code -->
 
     <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA1M-spdbLBikmMNzAol0m3uE0_WZYAXWU",
+        authDomain: "pokemon-firebase-820fd.firebaseapp.com",
+        projectId: "pokemon-firebase-820fd",
+        storageBucket: "pokemon-firebase-820fd.appspot.com",
+        messagingSenderId: "866190768035",
+        appId: "1:866190768035:web:f63814c66decac85d28c16",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
       // Add this function to handle authentication state changes
       function onAuthStateChanged(user) {
-        const userInfo = document.getElementById("user-info");
+        const userInfo = document.getElementById("user-info-display");
         if (user) {
           // User is signed in, show their info
           document.getElementById("user-name").textContent = user.displayName;
           document.getElementById("user-email").textContent = user.email;
           userInfo.style.display = "block";
+
+          // Log the user details to the console
+          console.log("Logged-in user details:", user);
         } else {
           // User is signed out, hide their info
           userInfo.style.display = "none";
