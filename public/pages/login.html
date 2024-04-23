@@ -15,15 +15,6 @@
   <script src="./js/imports.js"></script>
   <script type="module" src="./js/firebase.js"></script>
   <script type="text/javascript" src="./js/app.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-database-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-storage-compat.js"></script>
-
-  import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
 </head>
 
 <body>
@@ -210,7 +201,7 @@
     window.fbAuth = fbAuth;
     window.fbDB = fbDB;
   </script>
-  <script type="text/javascript">
+  <script defer type="text/javascript">
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
     stylesheet.type = 'text/css';
@@ -332,10 +323,6 @@
   event.preventDefault();
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-
-  console.log({firebase})
-  console.log({email})
-
   fbAuth.signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       console.log('User logged in successfully:', userCredential);
