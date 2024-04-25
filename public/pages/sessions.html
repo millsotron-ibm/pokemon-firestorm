@@ -36,6 +36,7 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
+      // Initialize Firebase SDK modules
       const fbAuth = firebase.auth();
       const fbDB = firebase.database();
     </script>
@@ -357,6 +358,7 @@
 
       function logUserOut(event) {
         logout(window.fbAuth);
+        console.log("tried to logout");
       }
     </script>
     <script
