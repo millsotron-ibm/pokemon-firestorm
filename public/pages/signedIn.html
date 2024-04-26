@@ -53,6 +53,9 @@ https://firebase.google.com/docs/web/setup#config-web-app -->
         } else {
           // User is signed out, hide their info
           userInfo.style.display = "none";
+
+          // Log the user details to the console
+          console.log("User is logged out:", user);
         }
       }
 
