@@ -21,25 +21,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
 
-    <script>
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyA1M-spdbLBikmMNzAol0m3uE0_WZYAXWU",
-        authDomain: "pokemon-firebase-820fd.firebaseapp.com",
-        projectId: "pokemon-firebase-820fd",
-        storageBucket: "pokemon-firebase-820fd.appspot.com",
-        messagingSenderId: "866190768035",
-        appId: "1:866190768035:web:f63814c66decac85d28c16",
-        databaseURL:
-          "https://pokemon-firebase-820fd-default-rtdb.firebaseio.com",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-
-      // Initialize Firebase SDK modules
-      const fbAuth = firebase.auth();
-      const fbDB = firebase.database();
-    </script>
+    <script type="module" src="./js/firebase.js"></script>
 
     <script type="text/javascript" src="./js/app.js"></script>
 
@@ -59,6 +41,20 @@
   </head>
 
   <body>
+    <script type="module">
+      // Import fbAuth and fbDb from firebase file
+      import { fbAuth, fbDB } from "./js/firebase.js";
+
+      // Confirm firebase variables available within login.html
+      console.log("Accessing fbAuth and fbDB from login.html...");
+
+      console.log("window.fbAuth:", window.fbAuth);
+      console.log("window.fbDB:", window.fbDB);
+
+      console.log("fbAuth:", fbAuth);
+      console.log("fbDB:", fbDB);
+    </script>
+
     <div class="page-body">
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid g-0">
