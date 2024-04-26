@@ -1,13 +1,12 @@
-var srcs=[
-   "https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js",
-   "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics-compat.js",
-   "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js",
-   "https://www.gstatic.com/firebasejs/10.10.0/firebase-database-compat.js",
-   "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage-compat.js"
-]
-for(var i=0;i<srcs.length;i++){
-  var script=document.createElement("script")
-  script.src=srcs[i]
-  script.defer=true
-  document.head.appendChild(script)
+var srcs = [
+  "https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js",
+  "https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js",
+  "https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js",
+  "./firebase.js",
+];
+for (var i = 0; i < srcs.length; i++) {
+  var script = document.createElement("script");
+  script.src = srcs[i];
+  // script.defer = true;
+  document.head.appendChild(script);
 }
