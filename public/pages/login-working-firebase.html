@@ -31,6 +31,23 @@
 </head>
 
 <body>
+
+  <script type="module">
+
+    // Import fbAuth and fbDb from firebase file
+    // import { fbAuth, fbDB } from "./js/firebase.js";
+
+    // Confirm firebase variables available within login.html
+    console.log("Accessing fbAuth and fbDB from login.html...");
+
+    console.log("window.fbAuth:", window.fbAuth);
+    console.log("window.fbDB:", window.fbDB);
+    
+    console.log("fbAuth:", fbAuth);
+    console.log("fbDB:", fbDB);
+
+  </script>
+
   <div class="page-body">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid g-0">
@@ -210,7 +227,7 @@
     <!--  -->
   </div>
   <script type="module">
-    // import { fbAuth, fbDB } from "./js/firebase.js"
+    import { fbAuth, fbDB } from "./js/firebase.js";
     window.fbAuth = fbAuth;
     window.fbDB = fbDB;
   </script>

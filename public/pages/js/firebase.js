@@ -10,6 +10,7 @@ const firebaseConfig = {
   appId: "1:866190768035:web:f63814c66decac85d28c16",
   databaseURL: "https://pokemon-firebase-820fd-default-rtdb.firebaseio.com",
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
