@@ -9,11 +9,11 @@
     <title>Code the Future</title>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
 
   <!-- Add SDKs for Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
 
   <!-- Initialise the Firebase system -->
   <script type="module" src="./js/firebase.js"></script>
@@ -32,6 +32,22 @@
 
 <body>
 
+  <script type="module">
+
+    // Import fbAuth and fbDb from firebase file
+    // import { fbAuth, fbDB } from "./js/firebase.js";
+
+    // Confirm firebase variables available within login.html
+    console.log("Accessing fbAuth and fbDB from login.html...");
+
+    console.log("window.fbAuth:", window.fbAuth);
+    console.log("window.fbDB:", window.fbDB);
+    
+    console.log("fbAuth:", fbAuth);
+    console.log("fbDB:", fbDB);
+
+  </script>
+
   <div class="page-body">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid g-0">
@@ -49,7 +65,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav nav-justified">
             <a class="nav-link" aria-current="page" href="#" onclick="createPath('index.html')">About CTF</a>
-            <a class="nav-link" aria-current="page" href="#" onclick="createPath('pages/meetTheTutors.html')">Meet the tutors</a>
+            <a class="nav-link" aria-current="page" href="#" onclick="createPath('pages/meetTheTutors.html')">Meet the
+              tutors</a>
             <a class="nav-link" aria-current="page" href="#" onclick="createPath('pages/1on1.html')">Schedule a 1:1</a>
             <a class="nav-link" href="#" onclick="createPath('jobs.html')">Jobs at CIC</a>
             <a class="nav-link" href="#" onclick="createPath('pages/courseCatalog.html')">Course Catalog</a>
@@ -210,16 +227,11 @@
     <!--  -->
   </div>
   <script type="module">
-    import { fbAuth, fbDB } from "./js/firebase.js"
-    console.log('Access Firebase objects within index.html...')
-    console.log("window.fbAuth:", window.fbAuth);
-    console.log("window.fbDB:", window.fbDB);
-    console.log("fbAuth:", fbAuth);
-    console.log("fbDB:", fbDB);
+    import { fbAuth, fbDB } from "./js/firebase.js";
     window.fbAuth = fbAuth;
     window.fbDB = fbDB;
   </script>
-  <script defer type="text/javascript">
+  <script type="text/javascript">
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
     stylesheet.type = 'text/css';
@@ -237,6 +249,7 @@
 
     function logUserOut(event) {
       logout(window.fbAuth)
+      console.log('User logged out: ', fbAuth);
     }
 
     async function validateAndRegister() {
